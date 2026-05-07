@@ -1,4 +1,4 @@
-package com.example.umc9th.domain.global;
+package com.example.umc9th.global.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;
@@ -12,7 +12,8 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @Getter
-public class BaseEntity {
+
+public abstract class BaseEntity {
     @CreatedDate
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
@@ -20,4 +21,7 @@ public class BaseEntity {
     @LastModifiedDate
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAat;
+
+    @Column(name="deleted_at")
+    private LocalDateTime deletedAt;
 }

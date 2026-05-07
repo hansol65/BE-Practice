@@ -1,10 +1,10 @@
 package com.example.umc9th.domain.member.entity;
 
 
-import com.example.umc9th.domain.global.BaseEntity;
+import com.example.umc9th.domain.store.enums.Address;
+import com.example.umc9th.global.entity.BaseEntity;
 import com.example.umc9th.domain.member.enums.Gender;
-//import com.example.umc9th.domain.store.enums.Address;
-//import com.example.umc9th.global.auth.enums.SocialType;
+import com.example.umc9th.global.enums.SocialType;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -33,9 +33,9 @@ public class Member extends BaseEntity  {
     @Column(name = "birth", nullable = false)
     private LocalDate birth;
 
-//    @Column(name = "address", nullable = false)
-//    @Enumerated(EnumType.STRING)
-//    private Address address;
+    @Column(name = "address", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Address address;
 
     @Column(name = "detail_address", nullable = false)
     private String detailAddress;
@@ -43,9 +43,9 @@ public class Member extends BaseEntity  {
     @Column(name = "social_uid", nullable = false)
     private String socialUid;
 
-//    @Column(name = "social_type", nullable = false)
-//    @Enumerated(EnumType.STRING)
-//    private SocialType socialType;
+    @Column(name = "social_type", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private SocialType socialType;
 
     @Column(name = "point", nullable = false)
     private Integer point;

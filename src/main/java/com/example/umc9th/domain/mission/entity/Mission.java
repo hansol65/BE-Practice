@@ -1,6 +1,6 @@
 package com.example.umc9th.domain.mission.entity;
 
-import com.example.umc9th.domain.global.BaseEntity;
+import com.example.umc9th.global.entity.BaseEntity;
 import com.example.umc9th.domain.store.entity.Store;
 import jakarta.persistence.*;
 import lombok.*;
