@@ -6,8 +6,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface MemberRepository extends JpaRepository<Member, Long>{
-    @Query("select m from Member m where m.name = :name and m.deleted_at is null")
-    List<Member> findActiveMember(@Param("name") String name);
+    // 마이페이지 조회
+    Optional<Member> findByIdAndDeletedAtIsNull(Long memberId);
+    // 이름으로 탈퇴하지 않은 회원 조회
+    Optional<Member> findByNameAndDeletedAtIsNull(String name);
 }
