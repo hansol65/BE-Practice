@@ -25,7 +25,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import java.time.LocalDate;
 import java.util.Optional;
 
-@DataJpaTest
+@DataJpaTest(properties = {
+        "spring.jpa.database-platform=org.hibernate.dialect.H2Dialect",
+        "spring.jpa.hibernate.ddl-auto=create-drop"
+})
 @EnableJpaAuditing
 
 public class RepositoryTest {
