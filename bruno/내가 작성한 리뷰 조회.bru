@@ -1,0 +1,15 @@
+meta {
+  name: 내가 작성한 리뷰 조회
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:8080/members/1/reviews
+  body: none
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}

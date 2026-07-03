@@ -1,19 +1,22 @@
-package com.example.umc9th.domain.review.service;
+package com.example.umc9th.domain.review.service.query;
 
-import com.example.umc9th.domain.review.entity.Review;
+import com.example.umc9th.domain.review.converter.ReviewConverter;
+import com.example.umc9th.domain.review.dto.res.ReviewResDTO;
 import com.example.umc9th.domain.review.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
-
-public class ReviewQueryService {
+@Transactional(readOnly = true)
+public class ReviewQueryServiceImpl implements ReviewQueryService {
     private final ReviewRepository reviewRepository;
 
-    public Page<Review> getMyReviews(
+    @Override
+    public Page<ReviewResDTO.MyReview> getMyReviews(
             Long memberId,
             String storeName,
             Integer score,
@@ -24,6 +27,6 @@ public class ReviewQueryService {
                 storeName,
                 score,
                 pageable
-        );
+        ).map(ReviewConverter::toMyReviewDTO);
     }
 }

@@ -1,7 +1,11 @@
 package com.example.umc9th.domain.review.controller;
 
+import com.example.umc9th.domain.review.dto.res.ReviewResDTO;
 import com.example.umc9th.domain.review.entity.Review;
-import com.example.umc9th.domain.review.service.ReviewQueryService;
+import com.example.umc9th.domain.review.service.query.ReviewQueryService;
+import com.example.umc9th.global.apiPayload.ApiResponse;
+
+import com.example.umc9th.global.apiPayload.code.GeneralSuccessCode;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,12 +18,18 @@ public class ReviewController {
     private final ReviewQueryService reviewQueryService;
 
     @GetMapping("/{memberId}/reviews")
-    public Page<Review> getMyReviews(
+    public ApiResponse<Page<ReviewResDTO.MyReview>> getMyReviews(
             @PathVariable Long memberId,
             @RequestParam(required = false) String storeName,
             @RequestParam(required = false) Integer score,
             Pageable pageable
     ) {
-        return reviewQueryService.getMyReviews(memberId, storeName, score, pageable);
+        Page<ReviewResDTO.MyReview> result = reviewQueryService.getMyReviews(
+                memberId,
+                storeName,
+                score,
+                pageable
+        );
+        return ApiResponse.onSuccess(GeneralSuccessCode.OK, result);
     }
 }
