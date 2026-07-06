@@ -2,6 +2,8 @@ package com.example.umc9th.domain.review.service.query;
 
 import com.example.umc9th.domain.review.converter.ReviewConverter;
 import com.example.umc9th.domain.review.dto.res.ReviewResDTO;
+import com.example.umc9th.domain.review.exception.ReviewException;
+import com.example.umc9th.domain.review.exception.code.ReviewErrorCode;
 import com.example.umc9th.domain.review.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -22,6 +24,11 @@ public class ReviewQueryServiceImpl implements ReviewQueryService {
             Integer score,
             Pageable pageable
     ) {
+        if(score != null && (score < 1 || score >= 5)) {
+            throw new ReviewException (
+                    ReviewErrorCode.INVALID_SCORE
+            );
+        }
         return reviewRepository.findMyReviewsWithFilter(
                 memberId,
                 storeName,

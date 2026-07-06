@@ -10,7 +10,6 @@ public class ReviewConverter {
                 .storeId(review.getStore().getId())
                 .storeName(review.getStore().getName())
                 .score(review.getScore())
-//                .content(review.getContent())
                 .build();
     }
 }

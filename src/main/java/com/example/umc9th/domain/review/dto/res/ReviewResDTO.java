@@ -11,6 +11,5 @@ public class ReviewResDTO {
         private Long storeId;
         private String storeName;
         private Float score;
-        private String content;
     }
 }
