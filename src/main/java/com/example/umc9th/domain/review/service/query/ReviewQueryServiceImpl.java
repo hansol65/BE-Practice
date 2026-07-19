@@ -24,7 +24,7 @@ public class ReviewQueryServiceImpl implements ReviewQueryService {
             Integer score,
             Pageable pageable
     ) {
-        if(score != null && (score < 1 || score >= 5)) {
+        if(score != null && (score < 1 || score > 5)) {
             throw new ReviewException (
                     ReviewErrorCode.INVALID_SCORE
             );

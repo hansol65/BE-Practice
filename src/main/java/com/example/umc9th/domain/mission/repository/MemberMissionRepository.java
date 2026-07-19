@@ -10,4 +10,9 @@ public interface MemberMissionRepository extends JpaRepository<MemberMission, Lo
     Page<MemberMission> findByMemberIdAndIsComplete(Long memberId, Boolean isComplete, Pageable pageable);
     // 특정 회원의 전체 미션 조회
     Page<MemberMission> findByMemberId(Long memberId, Pageable pageable);
+    // 이미 해당 미션에 도전했는지 확인
+    boolean existsByMemberIdAndMissionId(
+            Long memberId,
+            Long missionId
+    );
 }

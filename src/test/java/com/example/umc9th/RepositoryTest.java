@@ -32,7 +32,7 @@ import java.util.Optional;
         "spring.jpa.hibernate.ddl-auto=create-drop"
 })
 
-@EnableJpaAuditing
+//@EnableJpaAuditing
 @Import(QueryDslConfig.class)
 
 public class RepositoryTest {

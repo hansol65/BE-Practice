@@ -1,0 +1,34 @@
+meta {
+  name: 회원가입요청
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/members/sign-up
+  body: json
+  auth: inherit
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "name": "조한솔",
+    "gender": "MALE",
+    "birth": "2001-08-03",
+    "address": "JONGNO",
+    "detailAddress": "101동 901호",
+    "socialUid": "test-social-uid-001",
+    "socialType": "KAKAO",
+    "email": "whgksthf65@gmail.com",
+    "phoneNumber": "010-5767-0773"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
