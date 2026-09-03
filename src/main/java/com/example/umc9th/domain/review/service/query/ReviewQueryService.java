@@ -9,6 +9,6 @@ public interface ReviewQueryService {
             Long memberId,
             String storeName,
             Integer score,
-            Pageable pageable
+            Integer page
     );
 }
