@@ -12,4 +12,13 @@ public class MissionResDTO {
         private Long memberId;
         private Boolean isComplete;
     }
+
+    @Getter
+    @Builder
+    public static class StoreMission {
+        private Long missionId;
+        private String deadline;
+        private String conditional;
+        private Integer point;
+    }
 }

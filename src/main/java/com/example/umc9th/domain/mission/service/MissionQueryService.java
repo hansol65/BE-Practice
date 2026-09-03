@@ -28,5 +28,8 @@ public class MissionQueryService {
     public Page<MemberMission> getCompletedMissions(Long memberId, Pageable pageable) {
         return memberMissionRepository.findByMemberIdAndIsComplete(memberId, true, pageable);
     }
-
+    // 특정 가게의 미션 목록 조회
+    public Page<Mission> getStoreMissions(Long storeId, Pageable pageable) {
+        return missionRepository.findByStoreId(storeId, pageable);
+    }
 }

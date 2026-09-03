@@ -25,4 +25,13 @@ public class MissionConverter {
                 .isComplete(memberMission.getIsComplete())
                 .build();
     }
+
+    public static MissionResDTO.StoreMission toStoreMissionDTO(Mission mission) {
+        return MissionResDTO.StoreMission.builder()
+                .missionId(mission.getId())
+                .deadline(mission.getDeadline())
+                .conditional(mission.getConditional())
+                .point(mission.getPoint())
+                .build();
+    }
 }
